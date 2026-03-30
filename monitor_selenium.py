@@ -8,6 +8,7 @@ from telegram_notifier import TelegramNotifier
 
 class ARMSMonitor:
     def __init__(self):
+        
         self.scraper  = ARMSScraper()
         self.database = ResultsDatabase()
         self.notifier = TelegramNotifier()
@@ -29,26 +30,45 @@ class ARMSMonitor:
         if not self.notifier.test_connection():
             print("[!] Telegram not connected — check your token/chat ID")
 
+        # 🔥 FORCE TEST (temporary)
+        print("DEBUG → Sending test Telegram...")
+        self.notifier.send_notification(
+            "TEST101", "Test Subject", "A", "PASS", "Mar 2026"
+        )
+
         print(f"[{self._ts()}] ── Checking results ──")
 
         results = self.scraper.scrape_results()
 
+        print("DEBUG → Results fetched:", results)
+
         if results is None:
             print("[✗] Scraping failed!")
             self.notifier.notify_error("Scraping failed. Check credentials or connection.")
+
         elif len(results) == 0:
             print("[*] No results published yet.")
+
         else:
             new = self.database.find_new_results(results)
+
+            print("DEBUG → New results:", new)
+
             if new:
                 print(f"[!] {len(new)} NEW result(s) found!")
                 for r in new:
                     self.database.add_result(r)
+
+                    print("DEBUG → Sending Telegram...")
+
                     self.notifier.send_notification(
                         r['course_code'], r['course_name'],
                         r['grade'], r['status'], r['month_year']
                     )
-                    self.database.log_notification(r['course_code'], r['course_name'], r['grade'])
+
+                    self.database.log_notification(
+                        r['course_code'], r['course_name'], r['grade']
+                    )
             else:
                 print(f"[✓] No new results. ({len(results)} already tracked)")
 
@@ -57,4 +77,5 @@ class ARMSMonitor:
 
 
 if __name__ == "__main__":
-    ARMSMonitor().run()
+    monitor = ARMSMonitor()
+    monitor.run()
