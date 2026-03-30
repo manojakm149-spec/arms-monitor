@@ -1,11 +1,11 @@
 import requests
 from datetime import datetime
-from config import TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+from config import TELEGRAM_TOKEN, TELEGRAM_CHAT_ID
 
 
 class TelegramNotifier:
     def __init__(self):
-        self.token   = TELEGRAM_BOT_TOKEN
+        self.token   = TELEGRAM_TOKEN
         self.chat_id = TELEGRAM_CHAT_ID
         self.api     = f"https://api.telegram.org/bot{self.token}"
 
