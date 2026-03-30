@@ -1,14 +1,18 @@
-import os
-
-# ARMS
+# ─────────────────────────────────────────
+#  ARMS PORTAL CREDENTIALS
+# ─────────────────────────────────────────
 ARMS_URL = "https://arms.sse.saveetha.com/"
-ARMS_USERNAME = os.getenv("ARMS_USERNAME")
-ARMS_PASSWORD = os.getenv("ARMS_PASSWORD")
+ARMS_USERID  = "192511060"
+ARMS_PASSWORD = "mano"
 
-# Telegram
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+# ─────────────────────────────────────────
+#  TELEGRAM BOT SETTINGS
+# ─────────────────────────────────────────
+TELEGRAM_TOKEN = "8261851790:AAFXymHac_VlUIB8IPJGeeLD-zolJWnfpD8"
+TELEGRAM_CHAT_ID   = "6529331025"
 
-# Monitor
-CHECK_INTERVAL = 5 * 60
-DATABASE_NAME = "results.db"
+# ─────────────────────────────────────────
+#  MONITOR SETTINGS
+# ─────────────────────────────────────────
+CHECK_INTERVAL = 5 * 60   # Check every 5 minutes
+DATABASE_NAME  = "results.db"
