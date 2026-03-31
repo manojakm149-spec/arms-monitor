@@ -127,7 +127,6 @@ class TelegramNotifier:
             f"🎓 <b>NEW RESULT PUBLISHED!</b>\n\n"
             f"📘 <b>Course:</b> {course_name}\n"
             f"🔖 <b>Code:</b> {course_code}\n"
-            f"🏆 <b>Grade:</b> {grade}\n"
             f"✅ <b>Status:</b> {status}\n"
             f"📅 <b>Month/Year:</b> {month_year}\n\n"
             f"Check your ARMS portal now! 🎉"
