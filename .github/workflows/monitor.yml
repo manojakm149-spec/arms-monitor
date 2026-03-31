@@ -19,9 +19,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser chromium-chromedriver
+        uses: browser-actions/setup-chrome@latest
 
       - name: Install dependencies
         run: pip install -r requirements.txt
