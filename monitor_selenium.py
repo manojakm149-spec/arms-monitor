@@ -43,6 +43,7 @@ class ARMSMonitor:
 
         elif len(results) == 0:
             print("[*] No results published yet.")
+            # Do not send Telegram notification when no results exist
 
         else:
             new = self.database.find_new_results(results)
@@ -54,7 +55,7 @@ class ARMSMonitor:
                 for r in new:
                     self.database.add_result(r)
 
-                    print("DEBUG → Sending Telegram...")
+                    print("DEBUG → Sending Telegram for new result...")
 
                     self.notifier.send_notification(
                         r['course_code'], r['course_name'],
@@ -65,7 +66,8 @@ class ARMSMonitor:
                         r['course_code'], r['course_name'], r['grade']
                     )
             else:
-                print(f"[✓] No new results. ({len(results)} already tracked)")
+                print(f"[✓] No new results. ({len(results)} total currently tracked)")
+                print("[*] Skipping Telegram notification until there are new published results.")
 
         self.scraper.close()
         print("[*] Done!")
