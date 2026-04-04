@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-
+from webdriver_manager.core.utils import ChromeType
 from config import ARMS_URL, ARMS_USERID, ARMS_PASSWORD
 
 MYCOURSE_URL = "https://arms.sse.saveetha.com/StudentPortal/MyCourse.aspx"
