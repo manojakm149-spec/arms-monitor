@@ -30,7 +30,7 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ARMS_USERNAME: ${{ secrets.ARMS_USERNAME }}
+          ARMS_USERID: ${{ secrets.ARMS_USERID }}
           ARMS_PASSWORD: ${{ secrets.ARMS_PASSWORD }}
         run: python test_env.py
 
@@ -38,7 +38,7 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ARMS_USERNAME: ${{ secrets.ARMS_USERNAME }}
+          ARMS_USERID: ${{ secrets.ARMS_USERID }}
           ARMS_PASSWORD: ${{ secrets.ARMS_PASSWORD }}
         run: |
           echo "Starting ARMS Monitor..."

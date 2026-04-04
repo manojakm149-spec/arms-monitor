@@ -2,7 +2,7 @@
 import os
 
 print("=== Environment Variable Test ===")
-print(f"ARMS_USERNAME: {'SET' if os.getenv('ARMS_USERNAME') else 'NOT SET'}")
+print(f"ARMS_USERID: {'SET' if os.getenv('ARMS_USERID') else 'NOT SET'}")
 print(f"ARMS_PASSWORD: {'SET' if os.getenv('ARMS_PASSWORD') else 'NOT SET'}")
 print(f"TELEGRAM_TOKEN: {'SET' if os.getenv('TELEGRAM_TOKEN') else 'NOT SET'}")
 print(f"TELEGRAM_CHAT_ID: {'SET' if os.getenv('TELEGRAM_CHAT_ID') else 'NOT SET'}")
